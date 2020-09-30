@@ -76,7 +76,6 @@ const renderCalendar = () => {
 
     let days = "";
     
-    console.log(date.getDate());
     // 曜日の数値を1まで引いていき、div.prev-dateで表示,
     // 前月で同じ週の日にちを表示
     for(let x = firstDayIndex; x > 0; x--){
@@ -85,6 +84,9 @@ const renderCalendar = () => {
         </div>`;
     }
     
+    // 該当つきのlastDayまで数字(日にち)を代入
+    // iと取得した日にちが等しいかつ取得したdateの月と現在の日時のから取得した月が等しい場合に
+    // .todayクラスを付与
     for(let i = 1; i<= lastDay; i++){
         if(i === new Date().getDate() && 
         date.getMonth() === new Date().getMonth()){
@@ -93,6 +95,13 @@ const renderCalendar = () => {
             days += `<div>${i}</div>`;
         }
     }
+    let hiniti = new Date().getDate();
+    let prevMo = new Date().getMonth();
+
+    console.log(hiniti);
+    console.log(lastDay);
+    console.log(prevMo);
+    console.log(date.getMonth());
 
     for(let j = 1;j <= nextDays;j++){
         days += `<div class="next-date">${j}</div>`;
